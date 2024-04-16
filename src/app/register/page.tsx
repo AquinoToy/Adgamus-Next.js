@@ -1,58 +1,78 @@
+"use client";
+
+import axios, { AxiosError } from "axios";
+import { FormEvent, useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 function RegisterPage() {
-    return (
+  const [error, setError] = useState();
+  const router = useRouter();
 
-<div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-<div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
-    <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-        <div>
-        <img 
-            src= 'public/images/AgamusBanner.png'
-             className="mx-auto w-full lg:max-w-2xl" 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const signUpResponse = await axios.post("api/auth/singup", {
+        email: formData.get("email"),
+        password: formData.get("password"),
+        username: formData.get("username"),
+      });
+
+      console.log(signUpResponse);
+
+      const res = await signIn("credentials", {
+        email: signUpResponse.data.email,
+        password: formData.get("password"),
+        redirect: false,
+      });
+
+      if (res?.ok) return router.push("/dashboard");
+
+      console.log(res);
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        setError(error.response?.data.message);
+        console.log(error);
+      }
+    }
+  };
+
+  return (
+    <div className="justify-center h-[calc(100vh-4rem)] flex items-center  text-white">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-neutral-950 px-8 py-10 w-3/12"
+      >
+        {error && <div className="bg-red-500 text-white p-2 mb-2">{error}</div>}
+
+        <h1 className="text-4xl font-bold mb-7"> Registrar</h1>
+
+        <input
+          type="text"
+          placeholder="Nombre de usuario"
+          name="username"
+          className="bg-zinc-800 px-4 py-2 block mb-2 w-full"
         />
-        </div>
-        <div className="mt-12 flex flex-col items-center">
-            <div className="w-full flex-1 mt-8">
 
-                <div className="mx-auto max-w-xs">
-                    <input
-                        className=" w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                        type="text" placeholder="Nombre de usuario" name='username' />
-                    <input
-                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                        type="email" placeholder="Correo Electronico" name='email' />
-                    <input
-                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                        type="password" placeholder="Contraseña" name='password'/>
-                    <button
-                        className="mt-5 tracking-wide font-semibold bg-green-800 text-white-500 w-full py-4 rounded-lg hover:bg-green-500 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                        <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor">   
-                            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                            <circle cx="8.5" cy="7" r="4" />
-                            <path d="M20 8v6M23 11h-6" />
-                        </svg>  
-                        <span className="ml-">
-                            Registrar
-                        </span>
-                    </button>
-                    <p className="mt-6 text-xs text-gray-600 text-center">
-                        ¿Ya tienes una cuenta?
-                        <a href="#" className="border-b border-gray-500 border-dotted">
-                            Iniciar Sesión
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <input
+          type="email"
+          placeholder="Correo Electronico"
+          name="email"
+          className="bg-zinc-800 px-4 py-2 block mb-2 w-full"
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          name="password"
+          className="bg-zinc-800 px-4 py-2 block mb-2 w-full"
+        />
+        <button className="bg-indigo-500 px-4 py-2">Registrar</button>
+      </form>
     </div>
-    <div className="flex-1 bg-green-800 text-center hidden lg:flex">
-        <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url("https://drive.google.com/uc?export=view&id=1KZ_Ub_2lZ0dHbKV0fAIhxVhiQA183RCz")' }}>
-        </div>
-    </div>
-</div>
-</div>
-
-    )
+  );
 }
 
-export default RegisterPage
+export default RegisterPage;
