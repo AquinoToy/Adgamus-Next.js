@@ -7,6 +7,9 @@
   .text-elementos {
     color: #50a71e;
   }
+  .bg-elementos {
+    background-color: #50a71e;
+  }
   .border-elementos {
     border-color: #50a71e;
   }
@@ -26,6 +29,9 @@
   }
   .border-resaltar {
     border-color: #176517;
+  }
+  .bg-resaltar {
+    background-color: #176517;
   }
 }
 

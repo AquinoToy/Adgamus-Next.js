@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import logo from "@/assets/images/logo.svg";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+
 {
   /*Icons imports*/
 }
@@ -14,7 +15,7 @@ import { GiPlantSeed } from "react-icons/gi";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
-import { Single_Day } from "next/font/google";
+import { FaUserCircle } from "react-icons/fa";
 
 type NavItem = {
   label?: string;
@@ -78,6 +79,8 @@ const navItems: NavItem[] = [
 ];
 
 function Navbar() {
+  const [animationParent] = useAutoAnimate();
+
   const { data: session } = useSession();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -89,16 +92,23 @@ function Navbar() {
     }
   }, [session]);
 
+  const [isSideMenuOpen, setSideMenue] = useState(false);
+  function openSideMenu() {
+    setSideMenue(true);
+  }
+  function closeSideMenu() {
+    setSideMenue(false);
+  }
+
   return (
     <nav>
       <div className="flex justify-between container mx-auto w-full max-w-7x1 px-4 py-5 text-sm">
         {/*Sección izquierda*/}
-        <section className="flex items-center gap-10">
+        <section ref={animationParent} className="flex items-center gap-10">
           {/*Logo*/}
 
           <Image src={logo} alt="logo" />
-
-          <MobileNav />
+          {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
 
           <div className="hidden md:flex items-center gap-4 transition-all">
             {navItems.map((d, i) => (
@@ -143,52 +153,74 @@ function Navbar() {
         </section>
         {/*seccion derecha*/}
 
-        <section className="hidden md:flex items-center gap-8">
-          <Link
-            className="h-fit text-elementos transition-all hover:text-resaltar"
-            href="/login"
-          >
-            Iniciar Sesión
-          </Link>
-          <Link
-            className="h-fit rounded-xl border-2 border-elementos px-4 py-2 text-elementos transition-all hover:border-resaltar hover:text-resaltar"
-            href="/register"
-          >
-            Registrar
-          </Link>
-        </section>
-        <GiHamburgerMenu className="cursor-pointer text-4xl md:hidden" />
+        {isLoggedIn ? (
+          <section className="hidden md:flex items-center gap-8">
+            {/*Profile*/}
+            <Link
+              className="flex items-center w-full max-w-[200px] rounded-xl border-2 border-elementos py-1 pl-6 pr-8 text-elementos transition-all hover:border-resaltar hover:text-resaltar"
+              href="/dashboard/profile"
+            >
+              <FaUserCircle size={16} />
+              <span className="pl-3">Perfil</span>
+            </Link>
+          </section>
+        ) : (
+          <>
+            {/*Login y Register*/}
+
+            <section className="hidden md:flex items-center gap-8">
+              <Link
+                className="h-fit text-elementos transition-all hover:text-resaltar"
+                href="/login"
+              >
+                Iniciar Sesión
+              </Link>
+              <Link
+                className="h-fit rounded-xl border-2 border-elementos px-4 py-2 text-elementos transition-all hover:border-resaltar hover:text-resaltar"
+                href="/register"
+              >
+                Registrar
+              </Link>
+            </section>
+          </>
+        )}
+
+        <GiHamburgerMenu
+          onClick={openSideMenu}
+          className="cursor-pointer text-4xl md:hidden"
+        />
 
         {/*
         <Link href="/">
           <h1 className="font-bold text-xl cursor-pointer">Adgamus</h1>
         </Link>
-        <ul className="flex gap-x-2">
           {isLoggedIn ? (
             <li className="px-3 py-1">
               <Link href="/dashboard/profile">Perfil</Link>
             </li>
           ) : (
             <>
-              <li className="px-3 py-1">
-                <Link href="/about">Acerca de</Link>
-              </li>
-              <li className="px-3 py-1">
-                <Link href="/login">Iniciar Sesion</Link>
-              </li>
-              <li className="px-3 py-1">
-                <Link href="/register">Registrar</Link>
-              </li>
+              
             </>
           )}
-        </ul>
 */}
       </div>
     </nav>
   );
 }
 
-function MobileNav() {
+function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
+  const { data: session } = useSession();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (session) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [session]);
+
   return (
     <div
       className="fixed left-0 top-0 flex h-full min-h-screen w-full justify-end
@@ -196,7 +228,10 @@ function MobileNav() {
     >
       <div className="h-full w-[65%] bg-white px-4 py-4">
         <section className="flex justify-end">
-          <IoClose className="cursor-pointer text-4xl" />
+          <IoClose
+            onClick={closeSideMenu}
+            className="cursor-pointer text-4xl"
+          />
         </section>
         <div className="flex flex-col text-base gap-4 transition-all">
           {navItems.map((d, i) => (
@@ -210,6 +245,36 @@ function MobileNav() {
             </SingleNavItem>
           ))}
         </div>
+        {/*Profile*/}
+        {isLoggedIn ? (
+          <section className="flex flex-col items-center gap-8 mt-4">
+            <Link
+              className="flex items-center w-full max-w-[200px] rounded-xl border-2 border-elementos py-1 pl-6 pr-8 text-elementos transition-all hover:border-resaltar hover:text-resaltar"
+              href="/dashboard/profile"
+            >
+              <FaUserCircle size={16} />
+              <span className="pl-3">Perfil</span>
+            </Link>
+          </section>
+        ) : (
+          <>
+            {/*Login & Register*/}
+            <section className="flex flex-col items-center gap-8 mt-4">
+              <Link
+                className="h-fit text-elementos transition-all hover:text-resaltar"
+                href="/login"
+              >
+                Iniciar Sesión
+              </Link>
+              <Link
+                className="w-full max-w-[200px] rounded-xl border-2 border-elementos px-4 py-2 text-elementos transition-all hover:border-resaltar hover:text-resaltar"
+                href="/register"
+              >
+                Registrar
+              </Link>
+            </section>
+          </>
+        )}
       </div>
     </div>
   );
@@ -240,10 +305,7 @@ function SingleNavItem(d: NavItem) {
 
       {/*dropdown*/}
       {isItemOpen && d.children && (
-        <div
-          className="w-auto flex-col gap-1 rounded-lg bg-white 
-  py-3 transition-all flex"
-        >
+        <div className="w-auto flex-col gap-1 rounded-lg bg-white py-3 transition-all flex">
           {d.children.map((ch, i) => (
             <Link
               key={i}
