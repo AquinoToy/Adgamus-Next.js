@@ -50,11 +50,14 @@ function HomePage() {
         </div>
         {/*right div*/}
         <section className="md:w-1/2">
-          <Image
-            className="hidden h-auto max-w-[400px] md:block"
-            src={homeCow}
-            alt="Cow-image"
-          ></Image>
+          <div className="flex items-center justify-center h-full">
+            <Image
+              className="hidden h-auto max-w-[400px] md:block"
+              src={homeCow}
+              alt="Cow-image"
+            ></Image>
+          </div>
+
           <Image
             className=" h-auto w-full md:hidden"
             src={homeCow}

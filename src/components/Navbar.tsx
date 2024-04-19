@@ -106,8 +106,9 @@ function Navbar() {
         {/*Sección izquierda*/}
         <section ref={animationParent} className="flex items-center gap-10">
           {/*Logo*/}
-
-          <Image src={logo} alt="logo" />
+          <Link href={"/"}>
+            <Image src={logo} alt="logo" />
+          </Link>
           {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
 
           <div className="hidden md:flex items-center gap-4 transition-all">
@@ -189,21 +190,6 @@ function Navbar() {
           onClick={openSideMenu}
           className="cursor-pointer text-4xl md:hidden"
         />
-
-        {/*
-        <Link href="/">
-          <h1 className="font-bold text-xl cursor-pointer">Adgamus</h1>
-        </Link>
-          {isLoggedIn ? (
-            <li className="px-3 py-1">
-              <Link href="/dashboard/profile">Perfil</Link>
-            </li>
-          ) : (
-            <>
-              
-            </>
-          )}
-*/}
       </div>
     </nav>
   );
