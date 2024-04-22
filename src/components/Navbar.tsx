@@ -10,10 +10,8 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
   /*Icons imports*/
 }
 import { IoIosArrowDown } from "react-icons/io";
-import { GiCow } from "react-icons/gi";
-import { GiPlantSeed } from "react-icons/gi";
+import { GiCow, GiPlantSeed, GiHamburgerMenu } from "react-icons/gi";
 import { BsLightningChargeFill } from "react-icons/bs";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -107,7 +105,7 @@ function Navbar() {
         <section ref={animationParent} className="flex items-center gap-10">
           {/*Logo*/}
           <Link href={"/"}>
-            <Image src={logo} alt="logo" />
+            <Image src={logo} alt="logo" className="logo" />
           </Link>
           {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
 

@@ -27,22 +27,25 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-5rem)] items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
+    <div className="flex h-[calc(100vh-5rem)] items-center justify-center bg-gray-50 dark:bg-neutral-900">
+      <div className="w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl dark:border-neutral-300">
+        <div
+          className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16
+            dark:bg-neutral-950"
+        >
           <h3 className="text-xl font-semibold">Iniciar Sesión</h3>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Utiliza tu correo electrónico y contraseña para iniciar sesión.
           </p>
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
+          className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16 dark:bg-neutral-950"
         >
           <div>
             <label
               htmlFor="email"
-              className="block text-xs text-gray-600 uppercase"
+              className="block text-xs text-gray-600 uppercase dark:text-gray-400"
             >
               Correo Electronico
             </label>
@@ -52,13 +55,13 @@ function LoginPage() {
               name="email"
               className="mt-1 block w-full appearance-none rounded-full border-2 border-gray-300 px-3 py-2 
               placeholder-gray-400 shadow-sm focus:border-elementos focus:outline-none focus:ring-black sm:text-sm
-              hover:border-elementos"
+              hover:border-elementos dark:placeholder-gray-200"
             />
           </div>
           <div>
             <label
               htmlFor="password"
-              className="block text-xs text-gray-600 uppercase"
+              className="block text-xs text-gray-600 uppercase dark:text-gray-400"
             >
               Contraseña
             </label>
@@ -68,7 +71,7 @@ function LoginPage() {
               name="password"
               className="mt-1 block w-full appearance-none rounded-full border-2 border-gray-300 px-3 py-2 
               placeholder-gray-400 shadow-sm focus:border-elementos focus:outline-none focus:ring-black sm:text-sm
-              hover:border-elementos"
+              hover:border-elementos dark:placeholder-gray-200"
             />
           </div>
           {error && (
@@ -82,9 +85,12 @@ function LoginPage() {
           >
             Iniciar Sesión
           </button>
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
             {"Ya tienes una cuenta? "}
-            <Link href="/login" className="font-semibold text-gray-800">
+            <Link
+              href="/login"
+              className="font-semibold text-gray-800 dark:text-gray-200"
+            >
               Inicia Sesión
             </Link>
           </p>

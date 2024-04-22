@@ -2,26 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/*Caracteristicas del modo oscuro*/
+@layer base{
+  body{
+    /*Modo Gabo*/
+    @apply h-full dark:bg-neutral-950 dark:text-neutral-50 antialiased;
+  }
+  
+}
+
 /* Definición de colores personalizados */
 @layer utilities {
+  .logo{
+    @apply dark:white-logo;
+  }
+
+  .white-logo{
+    filter: invert(1);
+  }
+  
   .text-elementos {
     color: #50a71e;
+    @apply dark:text-neutral-50;
   }
   .bg-elementos {
     background-color: #50a71e;
+    @apply dark:text-neutral-50;
+
   }
   .border-elementos {
     border-color: #50a71e;
+    @apply dark:text-neutral-50;
+
   }
   .text-titulos {
     color: #439816;
+    @apply dark:text-neutral-50;
+
   }
 
   .text-texto {
     color: #367a11;
+    @apply dark:text-neutral-50;
+
   }
   .border-text-color{
     border-color: #367a11;
+    @apply dark:text-neutral-50;
+
   }
 
   .text-resaltar {
@@ -34,4 +62,5 @@
     background-color: #176517;
   }
 }
-
+ 
+       

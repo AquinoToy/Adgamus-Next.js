@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Epilogue } from "next/font/google";
-import Providers from "./Providers";
+import SessionProvider from "./Providers";
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {};
 const epilogue = Epilogue({ subsets: ["latin"] });
@@ -21,10 +22,12 @@ export default function RootLayout({
             : ""
         }
       >
-        <Providers>
-          <Navbar />
-          {children}
-        </Providers>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SessionProvider>
+            <Navbar />
+            <div>{children}</div>
+          </SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

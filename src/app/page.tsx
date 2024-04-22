@@ -4,14 +4,15 @@ import Image from "next/image";
 import GUIMO from "@/assets/images/GUIMOFachoso.svg";
 import ByGUIMO from "@/assets/images/By GUIMO.svg";
 import homeCow from "@/assets/images/homeCow.png";
+
 function HomePage() {
   const bannerImages = [GUIMO, ByGUIMO];
   return (
-    <div className="min-h-screen w-full bg-gray-100">
+    <div className="min-h-screen w-full bg-gray-100 dark:bg-neutral-900">
       {/*hero*/}
       <section
         className="mx-auto flex max-w-6xl flex-col-reverse gap-2
-      px-4 pb-12 transition-all md:flex-row md:gap-4"
+      px-4 pb-12 transition-all md:flex-row md:gap-4 "
       >
         {/*left div*/}
         <div
@@ -40,7 +41,7 @@ function HomePage() {
           <div className="flex gap-2 md:gap-6">
             {bannerImages.map((img, i) => (
               <Image
-                className="h-5 w-auto"
+                className="h-5 w-auto logo"
                 key={i}
                 src={img}
                 alt="cliente-image"
@@ -55,6 +56,7 @@ function HomePage() {
               className="hidden h-auto max-w-[400px] md:block"
               src={homeCow}
               alt="Cow-image"
+              priority={true}
             ></Image>
           </div>
 
