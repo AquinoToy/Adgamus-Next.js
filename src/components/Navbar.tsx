@@ -105,7 +105,7 @@ function Navbar() {
         <section ref={animationParent} className="flex items-center gap-10">
           {/*Logo*/}
           <Link href={"/"}>
-            <Image src={logo} alt="logo" className="logo" />
+            <Image src={logo} alt="logo" className="logo" priority={true} />
           </Link>
           {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
 
