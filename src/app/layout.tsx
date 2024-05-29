@@ -5,8 +5,16 @@ import SessionProvider from "./Providers";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 
+import { Yeseva_One } from "next/font/google";
+
+const yesevaOne = Yeseva_One({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-yeseva_one",
+});
 export const metadata: Metadata = {};
-const epilogue = Epilogue({ subsets: ["latin"] });
+//const epilogue = Epilogue({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -17,7 +25,7 @@ export default function RootLayout({
     <html lang="es">
       <body
         className={
-          `${epilogue.className} ${process.env.NODE_ENV == "development"}`
+          `${yesevaOne.className} ${process.env.NODE_ENV == "development"}`
             ? "debug-screens"
             : ""
         }

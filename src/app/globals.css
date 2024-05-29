@@ -1,6 +1,6 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
 /*Caracteristicas del modo oscuro*/
 @layer base{
@@ -10,7 +10,9 @@
   }
   
 }
-
+body {
+  font-family: var(--font-yeseva_one), serif;
+}
 /* Definición de colores personalizados */
 @layer utilities {
   .logo{
@@ -63,4 +65,3 @@
   }
 }
  
-       

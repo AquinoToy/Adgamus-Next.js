@@ -31,7 +31,7 @@ function HomePage() {
             </Balancer>
           </p>
           <button
-            className="border-elementos hove:bg-white w-fit rounded-xl
+            className="border-elementos hover:bg-white w-fit rounded-xl
           border-2 bg-elementos px-4 py-2 text-white transition-all
           hover:border-resaltar hover:bg-resaltar hover:bg-transparent
           hover:text-black/90"

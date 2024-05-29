@@ -68,6 +68,10 @@ const navItems: NavItem[] = [
         label: "¡Contáctanos!",
         link: "#",
       },
+      {
+        label: "Preguntas frecuentes",
+        link: "/FAQ",
+      },
     ],
   },
   {
