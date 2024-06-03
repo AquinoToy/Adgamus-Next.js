@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CollapsibleTrigger,
   CollapsibleContent,
@@ -6,26 +8,26 @@ import {
 
 function FAQ() {
   return (
-    <section className="w-full py-0 md:py-12 lg:py-22 bg-gray-50 dark:bg-gray-50">
-      <div className="container px-4 md:px-6">
+    <section className="w-full h-screen py-0 md:py-12 lg:py-22 bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto">
         <div className="grid gap-1">
-          <div className="text-center bg-gray-50 border-gray-200 ">
-            <h1 className="text-3xl font-semibold py-5 text-titulos tracking-tighter sm:text-4xl md:text-5xl m-5">
+          <div className="text-center bg-gray-50 dark:bg-gray-900  border-gray-200 dark:border-gray-700">
+            <h1 className="text-3xl font-semibold py-5 text-gray-900 dark:text-white tracking-tighter sm:text-4xl md:text-5xl m-5">
               Preguntas Frecuentes
             </h1>
-            <p className="max-w-[700px] mx-auto text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            <p className="max-w-[700px] mx-auto text-gray-600 dark:text-gray-400 md:text-xl lg:text-base xl:text-xl">
               Encuentra respuestas a las preguntas más comunes sobre nuestros
               servicios.
             </p>
           </div>
-          <div className="grid gap-6 g-white bg-gray-50 border border-gray-200 shadow-xl rounded-2xl m-5">
+          <div className="grid gap-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-xl rounded-2xl m-5">
             <Collapsible className="mx-5 mt-5">
               <div>
-                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium">
+                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
                   ¿Cuáles son los beneficios de nuestros servicios?
-                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 [&[data-state=open]]:rotate-180" />
+                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="text-gray-400 dark:text-gray-400">
+                <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
                     Nuestros servicios ofrecen una amplia gama de beneficios,
                     incluyendo:
@@ -45,11 +47,11 @@ function FAQ() {
             </Collapsible>
             <Collapsible className="mx-5">
               <div>
-                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium">
+                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
                   ¿Cuáles son los requisitos para contratar nuestros servicios?
-                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 [&[data-state=open]]:rotate-180" />
+                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="text-gray-500 dark:text-gray-400">
+                <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
                     Para contratar nuestros servicios, los requisitos
                     principales son:
@@ -75,11 +77,11 @@ function FAQ() {
             </Collapsible>
             <Collapsible className="mx-5">
               <div>
-                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium">
+                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
                   ¿Cómo puedo obtener soporte técnico?
-                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 [&[data-state=open]]:rotate-180" />
+                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="text-gray-500 dark:text-gray-400">
+                <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
                     Ofrecemos varios canales de soporte técnico para asistirte:
                   </p>
@@ -105,11 +107,11 @@ function FAQ() {
             </Collapsible>
             <Collapsible className="mx-5">
               <div>
-                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium">
+                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
                   ¿Cuáles son las formas de pago disponibles?
-                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 [&[data-state=open]]:rotate-180" />
+                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="text-gray-500 dark:text-gray-400">
+                <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
                     Aceptamos las siguientes formas de pago:
                   </p>
@@ -131,12 +133,12 @@ function FAQ() {
             </Collapsible>
             <Collapsible className="mx-5">
               <div>
-                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium">
+                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
                   ¿Cuál es la política de privacidad y seguridad de la
                   información?
-                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 [&[data-state=open]]:rotate-180" />
+                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="text-gray-500 dark:text-gray-400">
+                <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
                     Nos tomamos muy en serio la privacidad y seguridad de la
                     información de nuestros clientes. Algunas de nuestras

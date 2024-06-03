@@ -86,12 +86,12 @@ function LoginPage() {
             Iniciar Sesión
           </button>
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            {"Ya tienes una cuenta? "}
+            {"¿No tienes una cuenta? "}
             <Link
-              href="/login"
+              href="/register"
               className="font-semibold text-gray-800 dark:text-gray-200"
             >
-              Inicia Sesión
+              Registrate
             </Link>
           </p>
         </form>

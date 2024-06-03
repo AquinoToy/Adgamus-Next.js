@@ -29,12 +29,12 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "Selección de ganado",
-        link: "#",
+        link: "/animalia",
         iconImage: <GiCow size={28} color="red" />,
       },
       {
         label: "Cuidado de Cultivos",
-        link: "#",
+        link: "/plantae",
         iconImage: <GiPlantSeed size={28} color="green" />,
       },
       {
@@ -106,7 +106,10 @@ function Navbar() {
     <nav>
       <div className="flex justify-between container mx-auto w-full max-w-7x1 px-4 py-5 text-sm">
         {/*Sección izquierda*/}
-        <section ref={animationParent} className="flex items-center gap-10">
+        <section
+          ref={animationParent}
+          className="flex items-center gap-10 z-50"
+        >
           {/*Logo*/}
           <Link href={"/"}>
             <Image src={logo} alt="logo" className="logo" priority={true} />

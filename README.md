@@ -1,3 +1,7 @@
+cd src/server
+source venv/bin/activate # Activa el entorno virtual si no lo has hecho
+python app.py
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

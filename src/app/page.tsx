@@ -8,7 +8,7 @@ import homeCow from "@/assets/images/homeCow.png";
 function HomePage() {
   const bannerImages = [GUIMO, ByGUIMO];
   return (
-    <div className="min-h-screen w-full bg-gray-100 dark:bg-neutral-900">
+    <div className="min-h-screen w-full bg-gray-50 dark:bg-neutral-900">
       {/*hero*/}
       <section
         className="mx-auto flex max-w-6xl flex-col-reverse gap-2

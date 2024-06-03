@@ -4,6 +4,7 @@ import axios, { AxiosError } from "axios";
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function RegisterPage() {
   const [error, setError] = useState();
@@ -41,7 +42,7 @@ function RegisterPage() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-5rem)] items-center justify-center bg-gray-50">
+    <div className="flex h-[calc(100vh-3rem)] items-center justify-center bg-gray-50">
       <div className="w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl">
         <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
           <h3 className="text-xl font-semibold">Registrarse</h3>
@@ -113,6 +114,15 @@ function RegisterPage() {
             {" "}
             Registrar
           </button>
+          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+            {"¿Ya tienes una cuenta? "}
+            <Link
+              href="/login"
+              className="font-semibold text-gray-800 dark:text-gray-200"
+            >
+              Inicia Sesión
+            </Link>
+          </p>
         </form>
       </div>
     </div>
