@@ -1,13 +1,11 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify
-
-
-from genetics_calculations import GeneticsCalculations  # Importa la clase
+from genetics_calculations import GeneticsCalculations 
 
 app = Flask(__name__)
 
 @app.route('/api/genetics', methods=['GET', 'POST'])
 def get_genetics_data():
-    print(f"Request method: {request.method}")
     if request.method == 'POST':
         if request.is_json:
             data = request.json
@@ -15,11 +13,15 @@ def get_genetics_data():
             parent_genotype = data.get('parentGenotype')
             mother_genotype = data.get('motherGenotype')
 
-            # Aquí puedes realizar las operaciones que necesites con los datos recibidos
-            response_message = (
-                f"Received parent genotypeHolaaaaa: {parent_genotype}, "
-                f"mother genotype: {mother_genotype}. Hola tonotos, World! This is my Python API."
-            )
+            if parent_genotype and mother_genotype:
+                genetics = GeneticsCalculations()
+                all_combinations = genetics.doEverything(parent_genotype, mother_genotype)
+
+                response_message = {
+                    "parent_genotype": parent_genotype,
+                    "mother_genotype": mother_genotype,
+                    "combinations": all_combinations
+                }
 
             return jsonify({"message": response_message})
         else:
