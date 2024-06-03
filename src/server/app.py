@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+
+
 from genetics_calculations import GeneticsCalculations  # Importa la clase
 
 app = Flask(__name__)
