@@ -44,34 +44,34 @@ function ResultsPage() {
   }, []);
   // Evitar renderizaciones adicionales si geneticResponse no ha cambiado
   if (!geneticResponse || !motherGenotype || !parentGenotype) {
-    return        
-        Console.log("Cargando...")
+    return;
+    <p>"Cargando..."</p>;
   }
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="bg-gray-100 py-12 md:py-16 lg:py-20 dark:bg-gray-800">
+      <section className="bg-gray-100 py-6 md:py-8 lg:py-10 dark:bg-gray-800">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h1 className="text-3xl font-bold text-titulos tracking-tight sm:text-4xl md:text-5xl ">
+            <h1 className="text-2xl font-bold text-titulos tracking-tight sm:text-4xl md:text-5xl ">
               Resultados de los progenitores {motherGenotype.mother_genotype} y{" "}
               {parentGenotype.parent_genotype}
             </h1>
-            <p className="text-gray-500 text-lg md:text-xl dark:text-gray-40 ">
+            <p className="text-gray-500 text-lg md:text-xl dark:text-gray-400 ">
               A continuación se presenta información detallada sobre los
               resultados más comunes, menos comunes y el total de combinaciones.
             </p>
           </div>
         </div>
       </section>
-      <section className="py-12 mb-5 md:py-16 lg:py-20">
+      <section className="py-6 mb-5 md:py-8 lg:py-10">
         <div className="container px-4 md:px-6">
           <div className="space-y-8">
             <div>
-              <h2 className="text-2xl font-bold tracking-tight mb-4">
+              <h2 className="text-2xl font-bold tracking-tight mb-4 mt-3">
                 Resultados más comunes
               </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left rounded-2xl shadow-xl">
+              <div className="overflow-x-auto rounded-2xl shadow-2xl">
+                <table className="w-full text-left ">
                   <thead className="bg-gray-100 dark:bg-gray-800">
                     <tr>
                       <th className="px-4 py-3 font-medium ">Resultado</th>
@@ -83,7 +83,9 @@ function ResultsPage() {
                     {geneticResponse.most_common.map((combination, index) => (
                       <tr
                         key={index}
-                        className={`border-b border-gray-200 dark:border-gray-700 ${index % 2 === 0 ? 'bg-green-200' : 'bg-green-50'}`}
+                        className={`border-b border-gray-200 dark:border-gray-700 ${
+                          index % 2 === 0 ? "bg-green-200" : "bg-green-50"
+                        }`}
                       >
                         <td className="px-4 py-3">{combination[0]}</td>
                         <td className="px-4 py-3">{combination[1]}</td>
@@ -99,11 +101,9 @@ function ResultsPage() {
                 Resultados menos comunes
               </h2>
               {geneticResponse.least_common ? (
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left rounded-2xl shadow-xl">
-                    <thead 
-                    className="bg-gray-100 dark:bg-gray-800"
-                    >
+                <div className="overflow-x-auto rounded-2xl shadow-2xl">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-100 dark:bg-gray-800">
                       <tr>
                         <th className="px-4 py-3 font-medium">Resultado</th>
                         <th className="px-4 py-3 font-medium">Repetición</th>
@@ -111,7 +111,7 @@ function ResultsPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="border-b bg-red-200 border-gray-200 dark:border-gray-700 " >
+                      <tr className="border-b bg-red-200 border-gray-200 dark:border-gray-700 ">
                         <td className="px-4 py-3">
                           {geneticResponse.least_common[0]}
                         </td>
@@ -136,7 +136,7 @@ function ResultsPage() {
             <h2 className="text-2xl font-bold tracking-tight mb-4 mt-5">
               Total de combinaciones
             </h2>
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 rounded-xl shadow-xl">
+            <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-xl">
               <p className="text-4xl font-bold">
                 {geneticResponse.total_combinations}
               </p>
