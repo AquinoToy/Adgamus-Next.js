@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios, { AxiosError } from "axios";
 import withReactContent from "sweetalert2-react-content";
@@ -11,14 +11,15 @@ import { FaCircleInfo } from "react-icons/fa6";
 import Genetica from "@/assets/images/FondoGenetica.jpeg";
 import Adn from "@/assets/images/adn.png";
 import Vaca from "@/assets/images/vaca.png";
+import { NextResponse } from "next/server";
 
 function GeneticPage() {
-  // SweetAlert
+  const router = useRouter(); // Hook de Next.js para redirección
   const MySwal = withReactContent(Swal);
   const [currentStep, setCurrentStep] = useState(0);
 
   const steps = [
-    //Step 1
+    // Paso 1
     "<div style='font-size: 14px; justify-content: center; text-align: left;'>" +
       "<strong>Ejemplo. Información sobre Alelos:</strong><br><br>" +
       "<div style='margin-left: 20px;'>" +
@@ -45,7 +46,7 @@ function GeneticPage() {
       "&#8226; alelo g: Sensibilidad al clima frío (recesivo)<br><br>" +
       "</div>" +
       "</div>",
-    //Step 2
+    // Paso 2
     "<div style='font-size: 14px; justify-content: center; text-align: left;'>" +
       "<strong>Ejemplo: </strong><br><br>" +
       "<div style='margin-left: 20px;'>" +
@@ -53,7 +54,7 @@ function GeneticPage() {
       "<strong>Características:</strong> Pelaje blanco, cuernos cortos, tamaño corporal pequeño, baja producción de leche, vulnerabilidad a enfermedades, eficiencia alimenticia baja, sensibilidad al clima frío." +
       "</div>" +
       "</div>",
-    //Step 3
+    // Paso 3
     "<div style='font-size: 14px; justify-content: center; text-align: left;'>" +
       "<strong>Vaca 2:</strong><br><br>" +
       "<div style='margin-left: 20px;'>" +
@@ -61,7 +62,7 @@ function GeneticPage() {
       "<strong>Características:</strong> Pelaje negro, cuernos largos, tamaño corporal grande, alta producción de leche, resistencia a enfermedades, eficiencia alimenticia alta, adaptación al clima frío." +
       "</div>" +
       "</div>",
-    //Step 4
+    // Paso 4
     "<div style='font-size: 14px; justify-content: center; text-align: left;'>" +
       "<strong>Vaca 3:</strong><br><br>" +
       "<div style='margin-left: 20px;'>" +
@@ -69,7 +70,7 @@ function GeneticPage() {
       "<strong>Características:</strong> Pelaje blanco, cuernos cortos, tamaño corporal grande, alta producción de leche, resistencia a enfermedades, eficiencia alimenticia alta, sensibilidad al clima frío." +
       "</div>" +
       "</div>",
-    //Step 5
+    // Paso 5
     "<div style='font-size: 14px; justify-content: center; text-align: left;'>" +
       "<strong>Vaca 4:</strong><br><br>" +
       "<div style='margin-left: 20px;'>" +
@@ -77,7 +78,7 @@ function GeneticPage() {
       "<strong>Características:</strong> Pelaje negro, cuernos largos, tamaño corporal pequeño, alta producción de leche, resistencia a enfermedades, eficiencia alimenticia baja, adaptación al clima frío." +
       "</div>" +
       "</div>",
-    //Step 6
+    // Paso 6
     "<div style='font-size: 14px; justify-content: center; text-align: left;'>" +
       "<strong>Vaca 5:</strong><br><br>" +
       "<div style='margin-left: 20px;'>" +
@@ -124,7 +125,7 @@ function GeneticPage() {
     showSweetAlert(0);
   };
 
-  // Form handling
+  // Manejo del formulario
   const [error, setError] = useState();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -139,12 +140,19 @@ function GeneticPage() {
     console.log("Mother Genotype:", motherGenotype);
 
     try {
-      const geneticResponse = await axios.post("api/genetics", {
+      const geneticResponse = await axios.post("/api/genetics", {
         parentGenotype,
         motherGenotype,
       });
 
       console.log("Response from API:", geneticResponse);
+
+      localStorage.setItem(
+        "geneticResponse",
+        JSON.stringify(geneticResponse.data)
+      );
+
+      return router.push("/results");
     } catch (error) {
       if (error instanceof AxiosError) {
         setError(error.response?.data.message);

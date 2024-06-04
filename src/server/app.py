@@ -15,12 +15,12 @@ def get_genetics_data():
 
             if parent_genotype and mother_genotype:
                 genetics = GeneticsCalculations()
-                all_combinations = genetics.doEverything(parent_genotype, mother_genotype)
-
+                results = genetics.doEverything(parent_genotype, mother_genotype)
+                
                 response_message = {
                     "parent_genotype": parent_genotype,
                     "mother_genotype": mother_genotype,
-                    "combinations": all_combinations
+                    "results": results
                 }
 
             return jsonify({"message": response_message})
