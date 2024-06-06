@@ -1,8 +1,13 @@
 "use client";
+
 import MapView from "@/components/MapView";
 
-function mapPage() {
-  return <MapView />;
+function MapPage() {
+  return (
+    <div className="w-full h-screen relative mx-4">
+      <MapView />
+    </div>
+  );
 }
 
-export default mapPage;
+export default MapPage;

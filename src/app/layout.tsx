@@ -4,8 +4,10 @@ import { Epilogue } from "next/font/google";
 import SessionProvider from "./Providers";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import Head from "next/head";
 
 import { Yeseva_One } from "next/font/google";
+import Logo from "@/assets/images/Adgamus_Vaca.png";
 
 const yesevaOne = Yeseva_One({
   weight: "400",
