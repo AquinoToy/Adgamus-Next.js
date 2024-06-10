@@ -65,8 +65,3 @@ body {
     background-color: #176517;
   }
 }
-
-.leaflet-container{
-  width: 100vw;
-  height: 100vh;
-}
