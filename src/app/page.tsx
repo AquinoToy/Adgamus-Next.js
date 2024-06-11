@@ -20,7 +20,7 @@ function HomePage() {
         md:w-1/2 md:items-start md:gap-10 md:pt-32 md:text-left"
         >
           <h1 className="text-4xl font-semibold md:text-6xl text-titulos">
-            <Balancer>Ompitimiza tu campo</Balancer>
+            <Balancer>Omptimiza tu campo</Balancer>
           </h1>
           <p className="text-neutral-400 md:max-w-[400px]">
             <Balancer>

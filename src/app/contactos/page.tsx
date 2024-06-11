@@ -14,6 +14,7 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
+import { Select, SelectTrigger, SelectContent, SelectItem } from "@/components/ui/select";
 
 interface Contact {
   _id: string;
@@ -63,7 +64,7 @@ function ContactosPage() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full">
       <Card>
         <CardHeader>
           <CardTitle>Contactos de veterinarios</CardTitle>
@@ -71,7 +72,7 @@ function ContactosPage() {
         <CardContent>
           <form
             onSubmit={handleSubmit}
-            className="grid gap-4 rounded-2xl border border-gray-100 shadow-xl space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
+            className="grid gap-4 roundbordered-2xl shadow-xl space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
           >
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -106,50 +107,49 @@ function ContactosPage() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="DELEGACION">Delegación</Label>
-                <select
+                <Select
                   id="DELEGACION"
                   value={form.DELEGACION}
-                  onChange={handleChange}
-                  className="w-full border-gray-300 rounded-md shadow-sm p-4"
+                  onValueChange={(value) => setForm({ ...form, DELEGACION: value })}
                 >
-                  <option value="" disabled>
-                    Selecciona una delegación
-                  </option>
-                  <option value="AGUASCALIENTES">AGUASCALIENTES</option>
-                  <option value="BAJA CALIFORNIA">BAJA CALIFORNIA</option>
-                  <option value="BAJA CALIFORNIA SUR">
-                    BAJA CALIFORNIA SUR
-                  </option>
-                  <option value="CAMPECHE">CAMPECHE</option>
-                  <option value="CHIAPAS">CHIAPAS</option>
-                  <option value="CHIHUAHUA">CHIHUAHUA</option>
-                  <option value="COAHUILA">COAHUILA</option>
-                  <option value="COLIMA">COLIMA</option>
-                  <option value="CIUDAD DE MEXICO">CIUDAD DE MEXICO</option>
-                  <option value="DURANGO">DURANGO</option>
-                  <option value="GUANAJUATO">GUANAJUATO</option>
-                  <option value="GUERRERO">GUERRERO</option>
-                  <option value="HIDALGO">HIDALGO</option>
-                  <option value="JALISCO">JALISCO</option>
-                  <option value="ESTADO DE MEXICO">MEXICO</option>
-                  <option value="MICHOACAN">MICHOACAN</option>
-                  <option value="MORELOS">MORELOS</option>
-                  <option value="NAYARIT">NAYARIT</option>
-                  <option value="NUEVO LEON">NUEVO LEON</option>
-                  <option value="OAXACA">OAXACA</option>
-                  <option value="PUEBLA">PUEBLA</option>
-                  <option value="QUERETARO">QUERETARO</option>
-                  <option value="QUINTANA ROO">QUINTANA ROO</option>
-                  <option value="SAN LUIS POTOSI">SAN LUIS POTOSI</option>
-                  <option value="SINALOA">SINALOA</option>
-                  <option value="SONORA">SONORA</option>
-                  <option value="TABASCO">TABASCO</option>
-                  <option value="TAMAULIPAS">TAMAULIPAS</option>
-                  <option value="TLAXCALA">TLAXCALA</option>
-                  <option value="VERACRUZ">VERACRUZ</option>
-                  <option value="YUCATAN">YUCATAN</option>
-                  <option value="ZACATECAS">ZACATECAS</option>
-                </select>
+                  <SelectTrigger className="w-full rounded-md p-4">
+                    <span>{form.DELEGACION || "Selecciona una delegación"}</span>
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="AGUASCALIENTES">AGUASCALIENTES</SelectItem>
+                    <SelectItem value="BAJA CALIFORNIA">BAJA CALIFORNIA</SelectItem>
+                    <SelectItem value="BAJA CALIFORNIA SUR">BAJA CALIFORNIA SUR</SelectItem>
+                    <SelectItem value="CAMPECHE">CAMPECHE</SelectItem>
+                    <SelectItem value="CHIAPAS">CHIAPAS</SelectItem>
+                    <SelectItem value="CHIHUAHUA">CHIHUAHUA</SelectItem>
+                    <SelectItem value="COAHUILA">COAHUILA</SelectItem>
+                    <SelectItem value="COLIMA">COLIMA</SelectItem>
+                    <SelectItem value="CIUDAD DE MEXICO">CIUDAD DE MEXICO</SelectItem>
+                    <SelectItem value="DURANGO">DURANGO</SelectItem>
+                    <SelectItem value="GUANAJUATO">GUANAJUATO</SelectItem>
+                    <SelectItem value="GUERRERO">GUERRERO</SelectItem>
+                    <SelectItem value="HIDALGO">HIDALGO</SelectItem>
+                    <SelectItem value="JALISCO">JALISCO</SelectItem>
+                    <SelectItem value="ESTADO DE MEXICO">MEXICO</SelectItem>
+                    <SelectItem value="MICHOACAN">MICHOACAN</SelectItem>
+                    <SelectItem value="MORELOS">MORELOS</SelectItem>
+                    <SelectItem value="NAYARIT">NAYARIT</SelectItem>
+                    <SelectItem value="NUEVO LEON">NUEVO LEON</SelectItem>
+                    <SelectItem value="OAXACA">OAXACA</SelectItem>
+                    <SelectItem value="PUEBLA">PUEBLA</SelectItem>
+                    <SelectItem value="QUERETARO">QUERETARO</SelectItem>
+                    <SelectItem value="QUINTANA ROO">QUINTANA ROO</SelectItem>
+                    <SelectItem value="SAN LUIS POTOSI">SAN LUIS POTOSI</SelectItem>
+                    <SelectItem value="SINALOA">SINALOA</SelectItem>
+                    <SelectItem value="SONORA">SONORA</SelectItem>
+                    <SelectItem value="TABASCO">TABASCO</SelectItem>
+                    <SelectItem value="TAMAULIPAS">TAMAULIPAS</SelectItem>
+                    <SelectItem value="TLAXCALA">TLAXCALA</SelectItem>
+                    <SelectItem value="VERACRUZ">VERACRUZ</SelectItem>
+                    <SelectItem value="YUCATAN">YUCATAN</SelectItem>
+                    <SelectItem value="ZACATECAS">ZACATECAS</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
             <div className="space-y-2">
@@ -217,7 +217,7 @@ function ContactosPage() {
                 <TableHead>Vigencia Fin</TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody >   
               {contacts.map((contact) => (
                 <TableRow key={contact._id}>
                   <TableCell>{contact.NOMBRE}</TableCell>

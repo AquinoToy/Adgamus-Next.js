@@ -4,7 +4,22 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { IoSend } from "react-icons/io5";
 
+import { useEffect, useState } from "react";
+import { Socket } from "socket.io";
+
 function ChatPage() {
+  const [isConnected, setIsConnected] = useState(false);
+  const [transport, setTransport] = useState("N/A");
+
+  useEffect(() => {
+
+    if (Socket.connected) {
+      onConnect();
+    }
+
+  })
+
+
   return (
     <div className="flex flex-col h-screen">
       <header className="bg-green-900 text-white py-4 px-6">
@@ -71,13 +86,13 @@ function ChatPage() {
             <div className="relative">
               <Textarea
                 placeholder="Escribe tu mensaje..."
-                className="w-full rounded-lg pr-16 resize-none"
+                className="w-full rounded-lg pr-16 resize-none p-4"
                 rows={1}
               />
               <Button
                 type="submit"
                 size="icon"
-                className="absolute top-3 right-3"
+                className="absolute top-2 right-3"
               >
                 <IoSend />
                 <span className="sr-only">Enviar</span>
