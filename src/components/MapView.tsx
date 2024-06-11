@@ -164,7 +164,7 @@ function MapComponent() {
   return (
     <MapContainer
       center={position}
-      zoom={7}
+      zoom={11}
       scrollWheelZoom={false}
       style={{ height: "100vh", width: "100%", zIndex: 40 }}
       placeholder={<MapPlaceholder />}

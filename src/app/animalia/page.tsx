@@ -26,7 +26,7 @@ function AnimaliaPage() {
         </Link>
         <div className="grid gap-4 flex-grow">
           <Link
-            href="#"
+            href="/contactos"
             className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-6"
           >
             <SearchIcon className="w-8 h-8 text-gray-500 dark:text-gray-400" />
