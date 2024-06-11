@@ -53,8 +53,8 @@ const navItems: NavItem[] = [
         link: "#",
       },
       {
-        label: "Comunidad",
-        link: "#",
+        label: "Ayuda/Soporte",
+        link: "/chat",
       },
       {
         label: "Novedades",
