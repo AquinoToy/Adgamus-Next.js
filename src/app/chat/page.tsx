@@ -11,15 +11,6 @@ function ChatPage() {
   const [isConnected, setIsConnected] = useState(false);
   const [transport, setTransport] = useState("N/A");
 
-  useEffect(() => {
-
-    if (Socket.connected) {
-      onConnect();
-    }
-
-  })
-
-
   return (
     <div className="flex flex-col h-screen">
       <header className="bg-green-900 text-white py-4 px-6">
