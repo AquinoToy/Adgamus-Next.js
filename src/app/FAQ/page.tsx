@@ -24,54 +24,33 @@ function FAQ() {
             <Collapsible className="mx-5 mt-5">
               <div>
                 <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
-                  ¿Cuáles son los beneficios de nuestros servicios?
+                  ¿Qué es Adgamus y cuál es su propósito?{" "}
                   <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
-                    Nuestros servicios ofrecen una amplia gama de beneficios,
-                    incluyendo:
+                    Adgamus es una plataforma digital integral diseñada para
+                    empoderar a agricultores, ganaderos y dueños de mascotas,
+                    brindándoles herramientas tecnológicas eficientes y acceso a
+                    información valiosa para optimizar sus operaciones.
                   </p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Ahorro de tiempo y esfuerzo</li>
-                    <li>Mejora de la eficiencia y productividad</li>
-                    <li>Reducción de costos operativos</li>
-                    <li>Acceso a expertos y tecnología de vanguardia</li>
-                    <li>
-                      Escalabilidad y flexibilidad para adaptarse a tus
-                      necesidades
-                    </li>
-                  </ul>
                 </CollapsibleContent>
               </div>
             </Collapsible>
             <Collapsible className="mx-5">
               <div>
                 <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
-                  ¿Cuáles son los requisitos para contratar nuestros servicios?
+                  ¿Qué tipo de información puedo encontrar en el módulo de
+                  Cuidado de Cultivos?
                   <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
-                    Para contratar nuestros servicios, los requisitos
-                    principales son:
+                    En el módulo de Cuidado de Cultivos, podrás buscar
+                    información detallada sobre diferentes tipos de plantas,
+                    como su nombre científico, descripción, hábitat, época de
+                    floración, cuidados necesarios y mucho más.
                   </p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Tener una cuenta activa con nosotros</li>
-                    <li>Aceptar nuestros términos y condiciones de servicio</li>
-                    <li>
-                      Proporcionar la información y los datos necesarios para la
-                      prestación del servicio
-                    </li>
-                    <li>
-                      Realizar el pago correspondiente según el plan
-                      seleccionado
-                    </li>
-                    <li>
-                      Estar de acuerdo con nuestras políticas de privacidad y
-                      seguridad
-                    </li>
-                  </ul>
                 </CollapsibleContent>
               </div>
             </Collapsible>
@@ -83,24 +62,27 @@ function FAQ() {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
-                    Ofrecemos varios canales de soporte técnico para asistirte:
+                    ¿Cómo puedo localizar profesionales de la salud animal cerca
+                    de mí?{" "}
                   </p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Correo electrónico: support@example.com</li>
-                    <li>Teléfono: +1 (555) 123-4567</li>
-                    <li>Chat en vivo: disponible en nuestro sitio web</li>
-                    <li>
-                      Centro de ayuda: con artículos y guías de solución de
-                      problemas
-                    </li>
-                    <li>
-                      Solicitud de servicio: a través de nuestro formulario en
-                      línea
-                    </li>
-                  </ul>
-                  <p className="pt-4">
-                    Nuestro equipo de soporte está disponible de lunes a
-                    viernes, de 9 a.m. a 6 p.m. (hora local).
+                  En el módulo de Cuidado de Ganado, hay una sección que te
+                  permite buscar profesionales de la salud animal cercanos, como
+                  veterinarios, ingresando tu ubicación actual.
+                </CollapsibleContent>
+              </div>
+            </Collapsible>
+            <Collapsible className="mx-5">
+              <div>
+                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
+                  ¿Cómo puedo reportar un error o enviar una sugerencia al
+                  equipo de Adgamus?{" "}
+                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="text-gray-600 dark:text-gray-400">
+                  <p className="py-4">
+                    Si encuentras un error o tienes una sugerencia para mejorar
+                    Adgamus, puedes enviar un informe de error o sugerencia a
+                    través de la sección de Mensajes.{" "}
                   </p>
                 </CollapsibleContent>
               </div>
@@ -108,54 +90,17 @@ function FAQ() {
             <Collapsible className="mx-5">
               <div>
                 <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
-                  ¿Cuáles son las formas de pago disponibles?
+                  ¿Cómo puedo obtener ayuda si tengo un problema que no está
+                  cubierto en las preguntas frecuentes?
                   <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
-                    Aceptamos las siguientes formas de pago:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>
-                      Tarjeta de crédito (Visa, Mastercard, American Express)
-                    </li>
-                    <li>Tarjeta de débito</li>
-                    <li>Transferencia bancaria</li>
-                    <li>Pago en línea a través de PayPal</li>
-                    <li>Facturación recurrente (suscripción)</li>
-                  </ul>
-                  <p className="pt-4">
-                    Puedes seleccionar la opción de pago más conveniente para ti
-                    durante el proceso de contratación.
-                  </p>
-                </CollapsibleContent>
-              </div>
-            </Collapsible>
-            <Collapsible className="mx-5">
-              <div>
-                <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
-                  ¿Cuál es la política de privacidad y seguridad de la
-                  información?
-                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
-                </CollapsibleTrigger>
-                <CollapsibleContent className="text-gray-600 dark:text-gray-400">
-                  <p className="py-4">
-                    Nos tomamos muy en serio la privacidad y seguridad de la
-                    información de nuestros clientes. Algunas de nuestras
-                    políticas clave incluyen:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Encriptación de datos en tránsito y en reposo</li>
-                    <li>
-                      Cumplimiento de las regulaciones de protección de datos
-                    </li>
-                    <li>Acceso restringido a la información confidencial</li>
-                    <li>Copias de seguridad y recuperación de datos</li>
-                    <li>Monitoreo y detección de amenazas de seguridad</li>
-                  </ul>
-                  <p className="pt-4">
-                    Puedes consultar nuestra Política de Privacidad completa en
-                    nuestro sitio web para obtener más detalles.
+                    Si tienes un problema que no está cubierto en las preguntas
+                    frecuentes, puedes contactar al equipo de soporte de Adgamus
+                    a través del módulo de Perfil, en la sección de Mensajes.
+                    Describe tu problema con detalles para que el equipo pueda
+                    asistirte de la mejor manera.
                   </p>
                 </CollapsibleContent>
               </div>
