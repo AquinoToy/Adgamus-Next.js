@@ -45,7 +45,7 @@ function ResultsPage() {
   // Evitar renderizaciones adicionales si geneticResponse no ha cambiado
   if (!geneticResponse || !motherGenotype || !parentGenotype) {
     return;
-    <p>"Cargando..."</p>;
+    <p>Cargando...</p>;
   }
   return (
     <div className="flex flex-col min-h-screen">

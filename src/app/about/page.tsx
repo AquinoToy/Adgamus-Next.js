@@ -50,7 +50,7 @@ export default function AboutPage() {
               las necesidades únicas de cada cliente.
             </p>
           </div>
-          <img
+          <Image
             src="/placeholder.svg"
             width={550}
             height={310}
@@ -61,7 +61,7 @@ export default function AboutPage() {
       </section>
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
         <div className="container grid items-center justify-center gap-4 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
-          <img
+          <Image
             src="/placeholder.svg"
             width={550}
             height={310}
@@ -93,7 +93,7 @@ export default function AboutPage() {
               Eslogan
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              "Innovación conGUIMO"
+              Innovación conGUIMO
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               En Guimo, nos guiamos por el lema "Software inteligente para
@@ -136,7 +136,7 @@ export default function AboutPage() {
               </li>
             </ul>
           </div>
-          <img
+          <Image
             src="/placeholder.svg"
             width={550}
             height={310}
