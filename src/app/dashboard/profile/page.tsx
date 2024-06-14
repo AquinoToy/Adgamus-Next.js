@@ -21,7 +21,7 @@ function ProfilePage() {
     <div className="bg-white dark:bg-gray-950 w-full min-h-screen flex flex-col items-center justify-center px-4 md:px-6">
       <div className="bg-white dark:bg-gray-950 rounded-2xl shadow-lg overflow-hidden w-full max-w-md">
         <div className="h-32 bg-[#00b894] relative">
-          <img
+          <Image
             src="/placeholder.svg"
             width={100}
             height={100}
@@ -67,7 +67,7 @@ function ProfilePage() {
           <DialogContent className="sm:max-w-[425px]">
             <div className="flex justify-center">
               {selectedImage ? (
-                <img
+                <Image
                   src="/placeholder.svg"
                   width={200}
                   height={200}
@@ -75,7 +75,7 @@ function ProfilePage() {
                   className="rounded-full border-4 border-white dark:border-gray-950"
                 />
               ) : (
-                <img
+                <Image
                   src="/placeholder.svg"
                   width={200}
                   height={200}
