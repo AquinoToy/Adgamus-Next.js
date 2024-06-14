@@ -57,17 +57,16 @@ function FAQ() {
             <Collapsible className="mx-5">
               <div>
                 <CollapsibleTrigger className="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-900 dark:text-white">
-                  ¿Cómo puedo obtener soporte técnico?
+                  ¿Cómo puedo localizar profesionales de la salud animal cerca
+                  de mí?{" "}
                   <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 transform group-open:rotate-180" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="text-gray-600 dark:text-gray-400">
                   <p className="py-4">
-                    ¿Cómo puedo localizar profesionales de la salud animal cerca
-                    de mí?{" "}
+                    En el módulo de Cuidado de Ganado, hay una sección que te
+                    permite buscar profesionales de la salud animal cercanos,
+                    como veterinarios, ingresando tu ubicación actual.
                   </p>
-                  En el módulo de Cuidado de Ganado, hay una sección que te
-                  permite buscar profesionales de la salud animal cercanos, como
-                  veterinarios, ingresando tu ubicación actual.
                 </CollapsibleContent>
               </div>
             </Collapsible>

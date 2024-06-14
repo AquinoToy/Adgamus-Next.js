@@ -179,8 +179,8 @@ export default function Component() {
           la privacidad de tus datos, no dudes en contactarnos.
         </p>
       </div>
-      <div className="flex justify-end">
-        <Button>
+      <div className="flex justify-end ">
+        <Button className="bg-black text-white">
           <Link href={"/"}>Aceptar</Link>
         </Button>
       </div>

@@ -2,6 +2,10 @@
 import Image from "next/image";
 import Logo from "@/assets/images/GUIMOFacha.svg";
 
+import Mision from "@/assets/images/mision.jpeg";
+import Vision from "@/assets/images/vision.jpeg";
+import Objetivos from "@/assets/images/objetivos.jpeg";
+
 export default function AboutPage() {
   return (
     <div className="w-full">
@@ -50,8 +54,8 @@ export default function AboutPage() {
               las necesidades únicas de cada cliente.
             </p>
           </div>
-          <img
-            src="/placeholder.svg"
+          <Image
+            src={Mision}
             width={550}
             height={310}
             alt="Misión"
@@ -61,8 +65,8 @@ export default function AboutPage() {
       </section>
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
         <div className="container grid items-center justify-center gap-4 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
-          <img
-            src="/placeholder.svg"
+          <Image
+            src={Vision}
             width={550}
             height={310}
             alt="Visión"
@@ -136,8 +140,8 @@ export default function AboutPage() {
               </li>
             </ul>
           </div>
-          <img
-            src="/placeholder.svg"
+          <Image
+            src={Objetivos}
             width={550}
             height={310}
             alt="Objetivos"

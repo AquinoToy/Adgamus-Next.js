@@ -21,7 +21,7 @@ function AnimaliaPage() {
             className="object-cover w-full h-64 lg:h-[calc(100vh-15rem)]"
           />
           <div className="absolute inset-0 bg-black/50 items-center justify-center flex opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="text-white font-semibold">Saber más</span>
+            <span className="text-white font-semibold"></span>
           </div>
         </Link>
         <div className="grid gap-4 flex-grow">
@@ -31,13 +31,6 @@ function AnimaliaPage() {
           >
             <SearchIcon className="w-8 h-8 text-gray-500 dark:text-gray-400" />
             <span className="ml-2 font-medium">Buscar apoyo</span>
-          </Link>
-          <Link
-            href="#"
-            className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-6"
-          >
-            <ClipboardIcon className="w-8 h-8 text-gray-500 dark:text-gray-400" />
-            <span className="ml-2 font-medium">Seguimientos</span>
           </Link>
         </div>
         <div className="grid gap-4 flex-grow">

@@ -4,13 +4,29 @@ import Cow from "@/models/cow";
 import SpeciesCare from "@/models/speciesCare";
 
 export async function GET(request: Request, { params }: { params: any }) {
-  await connectDB();
+  try {
+    connectDB();
+    const cowFound = await Cow.findById(params.id);
 
-  // Asegúrate de manejar la búsqueda correctamente
-  const cow = await Cow.findOne();
-
-  return NextResponse.json({
-    message: `Obteniendo seguimiento ${params}...`,
-    cow: cow, // Puedes enviar los datos de la vaca como parte de la respuesta si lo deseas
-  });
+    if (!cowFound)
+      return NextResponse.json(
+        {
+          message: "Seguimiento no encontrado",
+        },
+        { status: 404 }
+      );
+    return NextResponse.json(cowFound);
+  } catch (error) {
+    console.log(error);
+    if (error instanceof Error) {
+      return NextResponse.json(
+        {
+          message: error.message,
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+  }
 }

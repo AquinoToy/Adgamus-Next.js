@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import logo from "@/assets/images/logo.svg";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
 
 {
   /*Icons imports*/
@@ -45,28 +47,16 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Configuración",
+    label: "Más info.",
     link: "#",
     children: [
       {
-        label: "ChatBot",
-        link: "#",
-      },
-      {
-        label: "Ayuda/Soporte",
-        link: "/chat",
-      },
-      {
-        label: "Novedades",
-        link: "#",
-      },
-      {
-        label: "Politicas de privacidad",
-        link: "#",
+        label: "Politicas",
+        link: "/cookies",
       },
       {
         label: "¡Contáctanos!",
-        link: "#",
+        link: "https://www.instagram.com/g.u.i.m.o?igsh=bzN4anJoZmpubmZv",
       },
       {
         label: "Preguntas frecuentes",
@@ -76,9 +66,25 @@ const navItems: NavItem[] = [
   },
   {
     label: "Acerca de",
-    link: "#",
+    link: "/about",
   },
 ];
+
+const MySwal = withReactContent(Swal);
+
+const showAlert = (title, text) => {
+  MySwal.fire({
+    title: title,
+    text: text,
+    icon: "info",
+    confirmButtonText: "Ok",
+    confirmButtonColor: "#50a71e",
+  });
+};
+const handleLinkClick = (e, title, text) => {
+  e.preventDefault();
+  showAlert(title, text);
+};
 
 function Navbar() {
   const [animationParent] = useAutoAnimate();
@@ -141,6 +147,21 @@ function Navbar() {
                         key={i}
                         href={ch.link ?? "#"}
                         className="flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-resaltar"
+                        onClick={(e) => {
+                          if (ch.label === "Cuidado de Cultivos") {
+                            handleLinkClick(
+                              e,
+                              "Cuidado de Cultivos",
+                              "Consulta nuestra aplicación móvil. :D"
+                            );
+                          } else if (ch.label === "Gestión de recursos") {
+                            handleLinkClick(
+                              e,
+                              "Gestión de recursos",
+                              "Modulo en desarollo..."
+                            );
+                          }
+                        }}
                       >
                         {/*image <Image src={} alt="itwm-icon" /> */}
                         {ch.iconImage}
