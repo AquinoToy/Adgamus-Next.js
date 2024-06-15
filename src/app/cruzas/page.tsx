@@ -262,7 +262,7 @@ function GeneticPage() {
         <p className="text-center text-sm text-gray-600 dark:text-gray-400 p-4 underline">
           {"Aprende sobre el "}
           <Link
-            href="#"
+            href="https://es.khanacademy.org/science/ap-biology/heredity/mendelian-genetics-ap/a/probabilities-in-genetics"
             className="font-semibold text-gray-800 dark:text-gray-200"
           >
             Cuadro de Punnet

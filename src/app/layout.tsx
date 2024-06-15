@@ -39,6 +39,22 @@ export default function RootLayout({
           </SessionProvider>
         </ThemeProvider>
       </body>
+      <script>
+        {`
+          document.addEventListener("DOMContentLoaded", function() {
+            const toastWrapper = document.querySelector('[data-nextjs-toast-wrapper="true"]');
+            if (toastWrapper) {
+              toastWrapper.parentNode.removeChild(toastWrapper);
+            }
+          });
+          window.addEventListener("load", function() {
+            const toastWrapper = document.querySelector('[data-nextjs-toast-wrapper="true"]');
+            if (toastWrapper) {
+              toastWrapper.parentNode.removeChild(toastWrapper);
+            }
+          });
+        `}
+      </script>
     </html>
   );
 }

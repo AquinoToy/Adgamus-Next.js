@@ -1,5 +1,7 @@
 import Balancer from "react-wrap-balancer";
 import Image from "next/image";
+import Link from "next/link";
+
 
 import GUIMO from "@/assets/images/GUIMOFachoso.svg";
 import ByGUIMO from "@/assets/images/By GUIMO.svg";
@@ -20,7 +22,7 @@ function HomePage() {
         md:w-1/2 md:items-start md:gap-10 md:pt-32 md:text-left"
         >
           <h1 className="text-4xl font-semibold md:text-6xl text-titulos">
-            <Balancer>Omptimiza tu campo</Balancer>
+            <Balancer>Optimiza tu campo</Balancer>
           </h1>
           <p className="text-neutral-400 md:max-w-[400px]">
             <Balancer>
@@ -36,7 +38,9 @@ function HomePage() {
           hover:border-resaltar hover:bg-resaltar hover:bg-transparent
           hover:text-black/90"
           >
-            Saber más
+            <Link href="/animalia">
+            Ir ahora
+            </Link>
           </button>
           <div className="flex gap-2 md:gap-6">
             {bannerImages.map((img, i) => (
